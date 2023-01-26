@@ -12,28 +12,40 @@ namespace TpPanier
         private List<Article> _articles = new List<Article>();
         public Article Article { get;private set; }
 
-        public int Quantity { get;private set; }
+        public int Quantity { get; private set; }
 
         public BasketLine()
         {
         }
-        public void AddToList(Article article)
+
+        public BasketLine(Article article)
         {
             _articles.Add(article);
-        }
-        public int CountArticle()
-        {
-            return _articles.Count;
-        } 
-        public void AfficherLaListeDesArticles()
-        {
-            Console.WriteLine("La liste des articles est :");
-            for (int i = 0; i < _articles.Count; i++)
-            {
-                Console.WriteLine(@$"
-Il y a {CountArticle()} {_articles.ElementAt(i).Designation}");
-            }
+            Quantity += 1;
         }
 
+        public void AddToList(Article article)
+        {
+            if ()
+            {
+
+            }
+            _articles.Add(article);
+            Quantity += 1;
+        }
+        public void AfficherLaListeDesArticles()
+        {
+               Console.WriteLine($"Il y a {Quantity} {_articles.ElementAt(0).Designation}");           
+        }
+        public float CalculatePrice()
+        {
+            return Quantity * _articles.ElementAt(0).Price;
+        }
+        public override string? ToString()
+        {
+            return $@"
+Il y a {Quantity} {_articles.ElementAt(0).Designation} dans cette ligne
+son prix est de {CalculatePrice()} euros";
+        }
     }
 }
