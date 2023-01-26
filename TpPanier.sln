@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TpPanier", "TpPanier\TpPanier.csproj", "{53C483D4-8EAC-4E71-87AB-F971F8817EB0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibraryTpPanier", "ClassLibraryTpPanier\ClassLibraryTpPanier.csproj", "{B4950494-1537-480F-A430-AFDF60F77D12}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{53C483D4-8EAC-4E71-87AB-F971F8817EB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53C483D4-8EAC-4E71-87AB-F971F8817EB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53C483D4-8EAC-4E71-87AB-F971F8817EB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53C483D4-8EAC-4E71-87AB-F971F8817EB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4950494-1537-480F-A430-AFDF60F77D12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4950494-1537-480F-A430-AFDF60F77D12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4950494-1537-480F-A430-AFDF60F77D12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4950494-1537-480F-A430-AFDF60F77D12}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {93A7929A-DA24-428E-8633-9987162EB9C2}
+	EndGlobalSection
+EndGlobal
