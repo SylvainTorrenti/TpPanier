@@ -20,10 +20,10 @@ namespace TpPanier
         } 
         public void AddArticle(Article article)
         {            
-            //if ()
-            //{
+            if ()
+            {
 
-            //}
+            }
             AddBasketLine(new BasketLine(article));
         }
         public void AddBasketLine(BasketLine basketline)
@@ -43,13 +43,14 @@ namespace TpPanier
         {
             return _basketlines.Count;
         }
-//        public override string? ToString()//afficher article trié ordre de reference
-//        {
-//            _articles.Sort();
-//            return $@"
-//Il y a {ArticleNumber()} article dans le panier
-//Les article sont {AfficherLaListeDesArticles()}"
-//        }
+        public override string? ToString()//afficher article trié ordre de reference
+        {
+            _basketlines.Sort();
+            return $@"
+Il y a {ArticleNumber()} article dans le panier.
+Les article sont {AfficherLaListeDesArticles()}
+Le prix du panier est de {Total()}";
+        }
         //public void DeleteArticle(Article article)//supr la ligne de l'article. si inexistant ne fait rien
         //{
 
