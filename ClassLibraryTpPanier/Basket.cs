@@ -11,8 +11,6 @@ namespace TpPanier
         public DateTime CreationDate { get; private set; }
         public int BasketNumber { get; private set; } = 0;
 
-        private List<Article> _articles = new List<Article>();
-
         private List<BasketLine> _basketlines = new List<BasketLine>();
 
         public Basket() 
@@ -20,9 +18,17 @@ namespace TpPanier
             CreationDate= DateTime.Now;
             BasketNumber += 1;
         } 
-        public void AddArticle(BasketLine basket)
+        public void AddArticle(Article article)
+        {            
+            //if ()
+            //{
+
+            //}
+            AddBasketLine(new BasketLine(article));
+        }
+        public void AddBasketLine(BasketLine basketline)
         {
-            _basketlines.Add(basket);
+            _basketlines.Add(basketline);
         }
         public float Total()//total du panier
         {
@@ -33,28 +39,42 @@ namespace TpPanier
             }
             return Somme;
         }
-        //public void ArticleNumber()//nombre article different
-        //{
-
-        //}
-        //public override string? ToString()//afficher article trié ordre de reference
-        //{
-        //    return 
-        //}
+        public int ArticleNumber()//nombre article different
+        {
+            return _basketlines.Count;
+        }
+//        public override string? ToString()//afficher article trié ordre de reference
+//        {
+//            _articles.Sort();
+//            return $@"
+//Il y a {ArticleNumber()} article dans le panier
+//Les article sont {AfficherLaListeDesArticles()}"
+//        }
         //public void DeleteArticle(Article article)//supr la ligne de l'article. si inexistant ne fait rien
         //{
 
         //}
-        //public void DeleteAll()// efface TOUT le panier
-        //{
-
-        //}
+        public void DeleteAll()
+        {
+            _basketlines.Clear();
+        }
         public void AfficherLaListeDesLignes()
         {
             for (int i = 0; i < _basketlines.Count; i++)
             {
                 Console.WriteLine($"{_basketlines.ElementAt(i)}");
+                Console.WriteLine("----------------------");
             }
+            
+        }
+        public void AfficherLaListeDesArticles()
+        {
+            for (int i = 0; i < _basketlines.Count; i++)
+            {
+                Console.WriteLine($"{_basketlines.ElementAt(i).Reference}");
+                Console.WriteLine("----------------------");
+            }
+
         }
     }
 }

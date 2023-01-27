@@ -24,6 +24,16 @@ namespace TpPanier
         {
             basketLine.AddToList(this);
         }
+
+        public override bool Equals(object? obj)
+        {
+            Article otherArticle = obj as Article;
+            if (otherArticle != null)
+                return Reference.Equals(otherArticle.Reference);
+            else
+                throw new ArgumentException("Les articles ne sont pas les même");
+        }
+
         public int CompareTo(object? obj)
         {
             if (obj == null) return 1;
@@ -41,6 +51,7 @@ La référence de l'article est {Reference}
 La designation de l'article est {Designation}
 Le prix de l'article est {Price} euros";
         }
+
 
     }
 }
