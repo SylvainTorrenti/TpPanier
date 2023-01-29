@@ -13,22 +13,34 @@ namespace TpPanier
 
         private List<BasketLine> _basketlines = new List<BasketLine>();
 
-        public Basket() 
+        public Basket()
         {
-            CreationDate= DateTime.Now;
+            CreationDate = DateTime.Now;
             BasketNumber += 1;
-        } 
-        public void AddArticle(Article article)
-        {            
-            if ()
-            {
-
-            }
-            AddBasketLine(new BasketLine(article));
         }
-        public void AddBasketLine(BasketLine basketline)
+        public void AddArticle(Article article)
         {
-            _basketlines.Add(basketline);
+            if (_basketlines.Count == 0)
+            {
+                Console.WriteLine($"La ligne {article.Reference} est ajouté");
+                BasketLine basketline = new BasketLine(article);
+                _basketlines.Add(basketline);
+            }
+            else
+            {
+                for (int i = 0; i < _basketlines.Count; i++)
+                {
+                    if (_basketlines.ElementAt(i).Reference == article.Reference)
+                    {
+                        Console.WriteLine($"La ligne {article.Reference} existe déjà donc ça quantité est ajouté");
+                        _basketlines.ElementAt(i).Quantity += 1;                       
+                    }
+                }
+                Console.WriteLine($"La ligne {article.Reference} est ajouté");
+                BasketLine basketLine = new BasketLine(article);
+                _basketlines.Add(basketLine);
+
+            }          
         }
         public float Total()//total du panier
         {
@@ -48,7 +60,6 @@ namespace TpPanier
             _basketlines.Sort();
             return $@"
 Il y a {ArticleNumber()} article dans le panier.
-Les article sont {AfficherLaListeDesArticles()}
 Le prix du panier est de {Total()}";
         }
         //public void DeleteArticle(Article article)//supr la ligne de l'article. si inexistant ne fait rien
@@ -66,7 +77,7 @@ Le prix du panier est de {Total()}";
                 Console.WriteLine($"{_basketlines.ElementAt(i)}");
                 Console.WriteLine("----------------------");
             }
-            
+
         }
         public void AfficherLaListeDesArticles()
         {

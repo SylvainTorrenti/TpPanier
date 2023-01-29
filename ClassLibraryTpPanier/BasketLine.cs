@@ -13,7 +13,7 @@ namespace TpPanier
         public int Reference { get; private set; }
         public Article Article { get; private set; }
 
-        public int Quantity { get; private set; }
+        public int Quantity { get; set; }
 
         public BasketLine(Article article)
         {
@@ -38,7 +38,7 @@ namespace TpPanier
         }
         public void AfficherLaListeDesArticles()
         {
-            Console.WriteLine($"Il y a {Quantity} {Article.Designation}");
+            Console.WriteLine($"Il y a {Quantity} {Article.Reference}");
         }
         public float CalculatePrice()
         {
