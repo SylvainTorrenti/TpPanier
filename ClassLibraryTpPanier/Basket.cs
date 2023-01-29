@@ -13,6 +13,7 @@ namespace TpPanier
 
         private List<BasketLine> _basketlines = new List<BasketLine>();
 
+
         public Basket()
         {
             CreationDate = DateTime.Now;
@@ -33,7 +34,7 @@ namespace TpPanier
                     if (_basketlines.ElementAt(i).Reference == article.Reference)
                     {
                         Console.WriteLine($"La ligne {article.Reference} existe déjà donc ça quantité est ajouté");
-                        _basketlines.ElementAt(i).Quantity += 1;                       
+                        _basketlines.ElementAt(i).Quantity += 1;
                     }
                 }
                 Console.WriteLine($"La ligne {article.Reference} est ajouté");
