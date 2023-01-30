@@ -11,6 +11,7 @@ namespace TpPanier
         private static int BasketLineNumber { get; set; } = 0;
         public int Number { get; private set; }
         public int Reference { get; private set; }
+        public string Designation { get; private set; }
         public Article Article { get; private set; }
 
         public int Quantity { get; set; }
@@ -22,6 +23,15 @@ namespace TpPanier
             Number = BasketLineNumber;
             Article = article;
             Quantity += 1;
+            Designation= article.Designation;
+        }
+        public BasketLine(Article article , int quantity)
+        {
+            Reference = article.Reference;
+            BasketLineNumber += 1;
+            Number = BasketLineNumber;
+            Article = article;
+            Quantity = quantity;
         }
 
         public void AddToList(Article article)
