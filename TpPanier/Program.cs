@@ -1,11 +1,13 @@
 ﻿using TpPanier;
 
+#region Creation des objets
 Article article1 = new Article(1, "Jouet", 25);
 Article article2 = new Article(2, "livre", 45);
 Article article3 = new Article(3, "console", 200);
 Article article4 = new Article(3, "console", 200);
 Article article5 = new Article(1, "Jouet", 25);
-Basket Basket1 = new Basket();
+Basket Basket1 = new Basket(); 
+#endregion
 Basket1.AddArticle(article1);
 Basket1.AddArticle(article2);
 Basket1.AddArticle(article3);

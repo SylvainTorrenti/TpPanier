@@ -8,17 +8,35 @@ namespace TpPanier
 {
     public class Basket
     {
+        #region props
+        /// <summary>
+        /// Date de creation
+        /// </summary>
         public DateTime CreationDate { get; private set; }
+        /// <summary>
+        /// Numero du panier
+        /// </summary>
         public int BasketNumber { get; private set; } = 0;
-
-        private List<BasketLine> _basketlines = new List<BasketLine>();
-
-
+        /// <summary>
+        /// Liste des lignes presente dans le panier 
+        /// </summary>
+        private List<BasketLine> _basketlines = new List<BasketLine>(); 
+        #endregion
+        #region Constructeur
+        /// <summary>
+        /// Construvteur
+        /// </summary>
         public Basket()
         {
             CreationDate = DateTime.Now;
             BasketNumber += 1;
-        }
+        } 
+        #endregion
+        #region Methode
+        /// <summary>
+        /// Ajout d'un article
+        /// </summary>
+        /// <param name="article"></param>
         public void AddArticle(Article article)
         {
             if (_basketlines.Count == 0)
@@ -50,6 +68,11 @@ namespace TpPanier
             }
 
         }
+        /// <summary>
+        /// ajout d'un article en indiquant la qt
+        /// </summary>
+        /// <param name="article"></param>
+        /// <param name="quantity"></param>
         public void AddArticleWithQt(Article article, int quantity)
         {
             if (_basketlines.Count == 0)
@@ -81,7 +104,11 @@ namespace TpPanier
             }
 
         }
-        public float Total()//total du panier
+        /// <summary>
+        /// Calcul le total du panier
+        /// </summary>
+        /// <returns></returns>
+        public float Total()
         {
             float Somme = 0;
             for (int i = 0; i < _basketlines.Count; i++)
@@ -90,7 +117,11 @@ namespace TpPanier
             }
             return Somme;
         }
-        public int ArticleNumber()//nombre article different
+        /// <summary>
+        /// Indique le nombre d'article present dans le panier
+        /// </summary>
+        /// <returns></returns>
+        public int ArticleNumber()
         {
             int NbArticle = 0;
             for (int i = 0; i < _basketlines.Count; i++)
@@ -99,21 +130,27 @@ namespace TpPanier
             }
             return NbArticle;
         }
-        public override string? ToString()//afficher article trié ordre de reference
+        /// <summary>
+        /// Affiche les articles
+        /// </summary>
+        /// <returns></returns>
+        public override string? ToString()
         {
             _basketlines.Sort();
             return $@"
 Il y a {ArticleNumber()} article dans le panier.
 Le prix du panier est de {Total()}";
         }
-        //public void DeleteArticle(Article article)//supr la ligne de l'article. si inexistant ne fait rien
-        //{
-
-        //}
+        /// <summary>
+        /// Supprime toute les lignes
+        /// </summary>
         public void DeleteAll()
         {
             _basketlines.Clear();
         }
+        /// <summary>
+        /// Affiche les lignes
+        /// </summary>
         public void AfficherLaListeDesLignes()
         {
             for (int i = 0; i < _basketlines.Count; i++)
@@ -123,6 +160,9 @@ Le prix du panier est de {Total()}";
             }
 
         }
+        /// <summary>
+        /// Affiche les articles
+        /// </summary>
         public void AfficherLaListeDesArticles()
         {
             for (int i = 0; i < _basketlines.Count; i++)
@@ -131,6 +171,7 @@ Le prix du panier est de {Total()}";
                 Console.WriteLine("----------------------");
             }
 
-        }
+        } 
+        #endregion
     }
 }
